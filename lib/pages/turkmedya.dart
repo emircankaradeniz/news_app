@@ -11,77 +11,72 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Turk Medya'),
-      ),
-      body: Container(
-        child: Column(
+      body: Column(
         children: [
           Stack(
-            children:[
-          Container(
-            height: 80,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('lib/images/turk_medya_back.jpg'),
-                fit: BoxFit.cover,
+            children: [
+              Container(
+                height: 120,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('lib/assets/turk_medya_back.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Positioned(
-            top: 16,
-            left: 16,
-            child: IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return Container(
-                      padding: EdgeInsets.all(16),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              _changePage('Hakkımızda', context);
-                            },
-                            child: Text('Hakkımızda'),
+              Positioned(
+                top: 40,
+                left: 16,
+                child: IconButton(
+                  icon: Icon(Icons.menu),
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  _changePage('Hakkımızda', context);
+                                },
+                                child: Text('Hakkımızda'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  _changePage('Markalar', context);
+                                },
+                                child: Text('Markalar'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  _changePage('Uygulamalar', context);
+                                },
+                                child: Text('Uygulamalar'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  _changePage('İletişim ve Bilgi Toplumu Hizmetleri', context);
+                                },
+                                child: Text('İletişim ve Bilgi Toplumu Hizmetleri'),
+                              ),
+                            ],
                           ),
-                          ElevatedButton(
-                            onPressed: () {
-                              _changePage('Markalar', context);
-                            },
-                            child: Text('Markalar'),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              _changePage('Uygulamalar', context);
-                            },
-                            child: Text('Uygulamalar'),
-                          ),
-                          ElevatedButton(
-                            onPressed: () {
-                              _changePage('İletişim ve Bilgi Toplumu Hizmetleri', context);
-                            },
-                            child: Text('İletişim ve Bilgi Toplumu Hizmetleri'),
-                          ),
-                        ],
-                      ),
+                        );
+                      },
                     );
                   },
-                );
-              },
-            ),
+                ),
+              ),
+            ],
           ),
-          ],
-          ),
-          Container(
-            child: _buildBody(),
+          Expanded(
+            child: _buildBody(), // Expanded widget ile sayfanın kalan alanını kapla
           ),
         ],
-        ),
       ),
     );
   }
@@ -143,12 +138,313 @@ class HakkimizdaPage extends StatelessWidget {
     );
   }
 }
-
 class MarkalarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Markalar Sayfası'),
+    return SingleChildScrollView( // İçeriği kaydırılabilir hale getirmek için
+      child: Center(
+        child: Column(
+          children: [
+            Image.asset('lib/assets/gazete.png'), // Resim dosyasının yolu
+            SizedBox(height: 10), // Resim ile butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/aksam.png'), // Buton1 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/gunes.png'), // Buton2 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/star.png'), // Buton3 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Image.asset('lib/assets/tv.png'),
+            SizedBox(height: 10), // Resim ile butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/tv24.png'), // Buton1 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/360tv.png'), // Buton2 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/tv4.jpg'), // Buton3 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Image.asset('lib/assets/radyo.png'),
+            SizedBox(height: 10), // Resim ile butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/alemFM.png'), // Buton1 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/Lig_Radyo.png'), // Buton2 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/24radyo.jpg'), // Buton3 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Image.asset('lib/assets/dergi.png'),
+            SizedBox(height: 10), // Resim ile butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/alem.png'), // Buton1 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10), // Butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/platin.png'), // Buton2 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Image.asset('lib/assets/baskı.png'),
+            SizedBox(height: 10), // Resim ile butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/starmatbacılık.png'), // Buton1 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Image.asset('lib/assets/dijital.png'),
+            SizedBox(height: 10), // Resim ile butonlar arasına boşluk ekler
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0), // Sağdan ve soldan padding ekler
+              child: Container(
+                height: 80, // Butonun yüksekliği
+                width: double.infinity, // Butonun genişliği
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.black, // Çerçeve rengi
+                    width: 1, // Çerçeve kalınlığı
+                  ),
+                  borderRadius: BorderRadius.circular(10), // Kenarları oval yapar
+                ),
+                child: IconButton(
+                  icon: Image.asset('lib/assets/TürkmedyaDijital.png'), // Buton1 resmi
+                  iconSize: 50, // İkon boyutu
+                  onPressed: () {
+                    // Butona tıklandığında yapılacaklar
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -157,7 +453,7 @@ class UygulamalarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Uygulamalar Sayfası'),
+      child: Text('Uygulamalar'),
     );
   }
 }
@@ -170,7 +466,6 @@ class IletisimPage extends StatelessWidget {
     );
   }
 }
-
 void main() {
   runApp(MaterialApp(
     title: 'Turk Medya',

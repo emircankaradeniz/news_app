@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/images/turk_medya_back.jpg'),
+                      image: AssetImage('lib/assets/turk_medya_back.jpg'),
                       fit: BoxFit.cover,
                     ),
                     color: Colors.blue.withOpacity(0.5), // Arka planı biraz saydam yapıyoruz
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'lib/images/turk_medya_logo.png',
+                          'lib/assets/turk_medya_logo.png',
                           width: 100, // Logo boyutunu küçültüyoruz
                           height: 100,
                         ),
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/images/global_haber_back.png'),
+                      image: AssetImage('lib/assets/global_haber_back.png'),
                       fit: BoxFit.cover,
                     ),
                     color: Colors.blue.withOpacity(0.5), // Arka planı biraz saydam yapıyoruz
@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(
-                          'lib/images/global_haber_logo.jpg', // Yerel resim kullanımı
+                          'lib/assets/global_haber_logo.jpg', // Yerel resim kullanımı
                           width: 100, // Boyutunu ayarlıyoruz
                           height: 100,
                         ),

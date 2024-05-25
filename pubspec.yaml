@@ -61,10 +61,33 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/images/turk_medya_logo.png
-    - lib/images/turk_medya_back.jpg
-    - lib/images/global_haber_logo.jpg
-    - lib/images/global_haber_back.png
+    - lib/assets/turk_medya_logo.png
+    - lib/assets/turk_medya_back.jpg
+    - lib/assets/global_haber_logo.jpg
+    - lib/assets/global_haber_back.png
+    - lib/assets/aksam.png
+    - lib/assets/gazete.png
+    - lib/assets/gunes.png
+    - lib/assets/star.png
+    - lib/assets/360tv.png
+    - lib/assets/tv.png
+    - lib/assets/tv4.jpg
+    - lib/assets/tv24.png
+    - lib/assets/24radyo.jpg
+    - lib/assets/alem.png
+    - lib/assets/alemFM.png
+    - lib/assets/baskı.png
+    - lib/assets/dergi.png
+    - lib/assets/dijital.png
+    - lib/assets/platin.png
+    - lib/assets/radyo.png
+    - lib/assets/starmatbacılık.png
+    - lib/assets/TürkmedyaDijital.png
+    - lib/assets/Lig_Radyo.png
+    - lib/assets/aksamSite.png
+    - lib/assets/wwwaksam.png
+    - lib/assets/DowAppStore.png
+    - lib/assets/GetPlay.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
