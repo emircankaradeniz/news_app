@@ -1,13 +1,39 @@
 import 'package:flutter/material.dart';
 import 'AksamPage.dart';
+import 'DataRetrieval.dart';
+import 'GunesPage.dart';
+import 'DataStorage.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class TurkMedyaPage extends StatefulWidget {
   @override
   _TurkMedyaPageState createState() => _TurkMedyaPageState();
 }
+String? _currentPage = "Hakkımızda";
+void _checkCurrentPage()async{
+  final prefs =await SharedPreferences.getInstance();
+  _currentPage = prefs.getString("_currentPage");
+}
+void _saveCurrentPage(String page)async{
+  final prefs =await SharedPreferences.getInstance();
+  prefs.setString("_currentPage",page);
+}
 
 class _TurkMedyaPageState extends State<TurkMedyaPage> {
-  String _currentPage = 'Hakkımızda'; // Başlangıçta görüntülenen sayfa
-
+  void _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+  @override
+  void initState(){
+    _checkCurrentPage();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +68,7 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
                               children: [
                                 ElevatedButton(
                                   onPressed: () {
+                                    _saveCurrentPage("Hakkımızda");
                                     _changePage('Hakkımızda', context);
                                   },
                                   child: Text('Hakkımızda'),
@@ -84,7 +111,6 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
       ),
     );
   }
-
   Widget _buildBody() {
     switch (_currentPage) {
       case 'Hakkımızda':
@@ -128,7 +154,7 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
                     width: 30,
                   ),
                   onPressed: () {
-                    // Facebook URL or functionality
+                    _launchURL('https://www.facebook.com/TurkMedyaTR/');
                   },
                 ),
               ),
@@ -139,7 +165,7 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
                     width: 30,
                   ),
                   onPressed: () {
-                    // Instagram URL or functionality
+                    _launchURL('https://www.instagram.com/turkmedyatr/');
                   },
                 ),
               ),
@@ -150,7 +176,7 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
                     width: 30,
                   ),
                   onPressed: () {
-                    // X URL or functionality
+                    _launchURL('https://x.com/turkmedyatr/');
                   },
                 ),
               ),
@@ -161,7 +187,7 @@ class _TurkMedyaPageState extends State<TurkMedyaPage> {
                     width: 30,
                   ),
                   onPressed: () {
-                    // Threads URL or functionality
+                    _launchURL('https://threads.com/turkmedyatr/');
                   },
                 ),
               ),
@@ -259,6 +285,7 @@ class MarkalarPage extends StatelessWidget {
                 child: IconButton(
                   icon: Image.asset('lib/assets/aksam.png'),
                   onPressed: () {
+                    _checkCurrentPage();
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => AksamPage()),
@@ -284,7 +311,10 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/gunes.png'), // Buton2 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GunesPage()),
+                    );
                   },
                 ),
               ),
@@ -541,6 +571,7 @@ class MarkalarPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 60),
           ],
         ),
       ),
@@ -565,7 +596,7 @@ class IletisimPage extends StatelessWidget {
     );
   }
 }
-void main() {
+Future<void> main() async {
   runApp(MaterialApp(
     title: 'Turk Medya',
     theme: ThemeData(

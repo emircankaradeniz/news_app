@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-class AksamPage extends StatefulWidget {
+class GunesPage extends StatefulWidget {
   @override
-  _AksamPageState createState() => _AksamPageState();
-}
-void _saveCurrentPage()async{
-  final prefs =await SharedPreferences.getInstance();
-  prefs.setString("_currentPage","Markalar" );
+  _GunesPageState createState() => _GunesPageState();
 }
 
-class _AksamPageState extends State<AksamPage> {
+class _GunesPageState extends State<GunesPage> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -43,7 +38,6 @@ class _AksamPageState extends State<AksamPage> {
                   child: IconButton(
                     icon: Icon(Icons.arrow_back),
                     onPressed: () {
-                      _saveCurrentPage();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -69,7 +63,7 @@ class _AksamPageState extends State<AksamPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/aksamSite.png'),
+                      image: AssetImage('lib/assets/gunesSite.png'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -79,9 +73,9 @@ class _AksamPageState extends State<AksamPage> {
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwaksam.png'),
+                    icon: Image.asset('lib/assets/wwwgunes.png'),
                     onPressed: () {
-                      _launchURL('https://www.aksam.com.tr/');
+                      _launchURL('https://www.gunes.com/');
                     },
                   ),
                 ),
@@ -92,7 +86,7 @@ class _AksamPageState extends State<AksamPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/GetPlay.png'),
                     onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.aksam.android');
+                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
                     },
                   ),
                 ),
@@ -103,7 +97,7 @@ class _AksamPageState extends State<AksamPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/DowAppStore.png'),
                     onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/ak%C5%9Fam/id982894881?ls=1');
+                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
                     },
                   ),
                 ),
@@ -116,7 +110,7 @@ class _AksamPageState extends State<AksamPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Akşam Gazetesi',
+                    'Güneş Gazetesi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -124,7 +118,7 @@ class _AksamPageState extends State<AksamPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Türkiye\'nin Gazetesi',
+                    'Halkın Cesur Sesi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -132,46 +126,33 @@ class _AksamPageState extends State<AksamPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '20 Eylül 1918\'de Necmettin Sadak, Kazım Şinasi Dersan, Falih Rıfkı Atay ve Ali Naci Karacan tarafından kurulan AKŞAM, köklü tarihiyle Türk basınının kilometre taşlarından biri olmuş; kurulduğu ilk günden bu yana güvenilir haberciliğin simgesi haline gelmiştir.',
+                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Osmanlı’nın son dönemlerinden başlayarak modern Türkiye\'nin tarihine tanıklık eden AKŞAM Gazetesi, Türkiye tarihinin kritik dönüm noktalarında aldığı tavırla ön plana çıkmış, tercihini daima “haklı olan” dan yana kullanmıştır.',
+                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'İlk sayısında baş makalesi "Yeni Devir" olan AKŞAM, o dönemde İstanbul\'da Kuva-yi Milliye hareketini destekleyen az sayıdaki gazetelerden biri olarak; Türkiye’nin bağımsızlık savaşı verdiği günlerde, Anadolu’dan gelen haberleri yayınlayan cesur gazeteler arasında yerini almıştır.',
+                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'AKŞAM\'ın faaliyetlerinin temelini, halkın gerçek gündemini yansıtan özel haberler, güçlü yazarlar, ilgi uyandıran yazı dizileri, bulmaca, at yarışı ve hafta sonlarının vazgeçilmezi haline gelen ek yayınları Fikir ve tartışma eki Açık Görüş ve zengin, dopdolu içeriğiyle Akşam Cumartesi eki oluşturmaktadır.',
+                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
-                  Text(
-                    'akşam.com.tr; her gün gelişen iletişim teknolojisi ve dijital altyapısı ile birlikte web sitesinden anlık olarak gündemi, yaşamın her alanından etkin içerikleri, birbirinden değerli isimlerin köşe yazılarını aktarmaktadır. Bunun yanı sıra Akşam, Akşam TV ile spordan sanata, modadan teknolojiye, at yarışından bulmacaya, sağlıktan magazine kadar gündemin nabzını tutan birçok içeriği takipçilerine sunmaktadır.',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Basın ve fikir hayatında önemli isimlere ev sahipliği yapan AKŞAM, TürkMedya çatısı altında yeniliklerle dolu yolculuğuna devam etmektedir.',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -203,46 +184,6 @@ class _AksamPageState extends State<AksamPage> {
                     ContactInfo(
                       title: 'Merkez Fax',
                       details: '0(212) 473 21 45',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'Basıldığı Yer',
-                      details: 'Turkuvaz Haberleşme Ve Yayıncılık A.Ş.',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'Genel Dağıtım',
-                      details: 'Turkuvaz Dağıtım Pazarlama A.Ş.',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'İstanbul Matbaa',
-                      details: 'Güzeltepe Mah. Mareşal Fevzi Çakmak Cad. B Blok 29/1/1 Eyüpsultan / İstanbul',
-                      phone: '(0212) 354 30 00',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'Ankara Matbaa',
-                      details: 'Esenboğa Yolu 13 km, Pursaklar / ANKARA',
-                      phone: '(0312) 328 85 00',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'İzmir Matbaa',
-                      details: 'Çınarlı Mahallesi Ankara Asfaltı Caddesi no:5 Konak / İzmir',
-                      phone: '(0232) 497 15 00',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'Adana Matbaa',
-                      details: 'Ceyhan Yolu Üzeri 5 km, Sabah Tesisleri Yüreğir / Adana',
-                      phone: '(0322) 346 30 93',
-                    ),
-                    Divider(thickness: 1.0,color: Colors.black,),
-                    ContactInfo(
-                      title: 'Trabzon Matbaa',
-                      details: 'Arsin Organize Sanayi Bölgesi 1.Cadde No:14',
-                      phone: '(0462) 711 16 05',
                     ),
                     SizedBox(height: 60),
                   ],
