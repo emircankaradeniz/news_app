@@ -88,6 +88,12 @@ flutter:
     - lib/assets/wwwaksam.png
     - lib/assets/DowAppStore.png
     - lib/assets/GetPlay.png
+    - lib/assets/gazeteGray.png
+    - lib/assets/facebook-white-icon.png
+    - lib/assets/instagram-white-icon.png
+    - lib/assets/threads-white-icon.png
+    - lib/assets/x-white-icon.png
+    - lib/assets/turkmedyaresim.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
