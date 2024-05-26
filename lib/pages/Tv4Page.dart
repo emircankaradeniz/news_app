@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class Tv4Page extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _Tv4PageState createState() => _Tv4PageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+class _Tv4PageState extends State<Tv4Page> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -57,7 +57,7 @@ class _GunesPageState extends State<GunesPage> {
               height: 70,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('lib/assets/gazeteGray.png'),
+                  image: AssetImage('lib/assets/tvGray.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,7 +68,7 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
+                      image: AssetImage('lib/assets/tv4Site.png'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -78,9 +78,9 @@ class _GunesPageState extends State<GunesPage> {
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/wwwtv4.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
+                      _launchURL('https://www.tv4.com.tr/');
                     },
                   ),
                 ),
@@ -91,7 +91,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/GetPlay.png'),
                     onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
+                      _launchURL('https://play.google.com/store/apps/details?id=se.tv4.tv4playtab&hl=tr&gl=US');
                     },
                   ),
                 ),
@@ -102,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/DowAppStore.png'),
                     onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://apps.apple.com/us/app/tv4/id6445849293');
                     },
                   ),
                 ),
@@ -115,7 +115,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    'TV 4',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Türkiye’nin En Farklı, Eğlenceli ve Renkli Kanalı!',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +131,21 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    'Türkiye’nin en farklı, eğlenceli ve renkli kanalı tv4 yenilenen logosu ve birbirinden yeni programları ile sizlerle buluşuyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    'Dinamik, farklı ve renkli akışının içerisinde aile temaları ile yayın yapmakta olan tv4, yenilenen yüzü ve yayın akışına eklenen eğitici, eğlenceli programları ile yeni yayın dönemine başlıyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Zengin içerikleri, konusunda uzman kişilerin anlatımları ile hazırlanan programalar, 7’den 70’e herkesi ekran başına davet ediyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),

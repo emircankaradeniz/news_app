@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class PlatinPage extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _PlatinPageState createState() => _PlatinPageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+
+class _PlatinPageState extends State<PlatinPage> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -57,7 +58,7 @@ class _GunesPageState extends State<GunesPage> {
               height: 70,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('lib/assets/gazeteGray.png'),
+                  image: AssetImage('lib/assets/dergiGray.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,41 +69,19 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
+                      image: AssetImage('lib/assets/platinSite.png'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 15,
+                  top: 75,
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/wwwplatin.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
-                    },
-                  ),
-                ),
-                Positioned(
-                  top: 75,
-                  left: 16,
-                  width: 80,
-                  child: IconButton(
-                    icon: Image.asset('lib/assets/GetPlay.png'),
-                    onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
-                    },
-                  ),
-                ),
-                Positioned(
-                  top: 100,
-                  left: 16,
-                  width: 80,
-                  child: IconButton(
-                    icon: Image.asset('lib/assets/DowAppStore.png'),
-                    onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://www.platinonline.com/');
                     },
                   ),
                 ),
@@ -115,7 +94,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    'Platin Dergisi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Türkiye’nin En Dinamik Aylık Ekonomi Dergisi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +110,35 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    '1998 yılından itibaren Türk ekonomi basınında önemli bir yere sahip aylık iş dünyası dergisi Platin ‘Türkiye’nin en dinamik aylık ekonomi dergisi’ mottosuyla yoluna başarıyla devam etmektedir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    'Deneyimli yayın ekibinin hazırladığı çarpıcı haberler; özel dosya konuları ve röportajlarıyla okuyucularına ulaşan Platin hayatın her alanına dokunan habercilik anlayışının yanı sıra tasarımıyla da ekonomi basınında fark yaratmaktadır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
+                    'İş dünyasının yakından takip ettiği dergi gücünü genç dinamik ve donanımlı editörlerinden, köşe yazarlarından, güvenilir haber kaynaklarından ve elbette okuyucularından almaktadır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Farklı konulardaki derin analizleri makro ve mikro-ekonomi haberlerini bölgesel yatırım fırsatlarını hayatın her alanına dokunan lifestyle konu başlıklarını ve trendleri Platin’den takip etmek mümkündür.',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Platin bu özellikleri ile profesyonel ekonomi okurunun yanı sıra ekonomi ile ilgilenen hemen herkesin bir şeyler bulduğu bir yayın olarak Türk ekonomi basınında fark yaratarak öne çıkmaktadır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -189,6 +175,46 @@ class _GunesPageState extends State<GunesPage> {
                     ContactInfo(
                       title: 'Merkez Fax',
                       details: '0(212) 473 21 45',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Basıldığı Yer',
+                      details: 'Turkuvaz Haberleşme Ve Yayıncılık A.Ş.',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Genel Dağıtım',
+                      details: 'Turkuvaz Dağıtım Pazarlama A.Ş.',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'İstanbul Matbaa',
+                      details: 'Güzeltepe Mah. Mareşal Fevzi Çakmak Cad. B Blok 29/1/1 Eyüpsultan / İstanbul',
+                      phone: '(0212) 354 30 00',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Ankara Matbaa',
+                      details: 'Esenboğa Yolu 13 km, Pursaklar / ANKARA',
+                      phone: '(0312) 328 85 00',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'İzmir Matbaa',
+                      details: 'Çınarlı Mahallesi Ankara Asfaltı Caddesi no:5 Konak / İzmir',
+                      phone: '(0232) 497 15 00',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Adana Matbaa',
+                      details: 'Ceyhan Yolu Üzeri 5 km, Sabah Tesisleri Yüreğir / Adana',
+                      phone: '(0322) 346 30 93',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Trabzon Matbaa',
+                      details: 'Arsin Organize Sanayi Bölgesi 1.Cadde No:14',
+                      phone: '(0462) 711 16 05',
                     ),
                     SizedBox(height: 60),
                   ],

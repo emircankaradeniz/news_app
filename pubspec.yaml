@@ -98,6 +98,28 @@ flutter:
     - lib/assets/turkmedyaresim.png
     - lib/assets/wwwgunes.png
     - lib/assets/gunesSite.png
+    - lib/assets/starSite.png
+    - lib/assets/wwwstar.png
+    - lib/assets/wwwalem.png
+    - lib/assets/alemSite.png
+    - lib/assets/dergiGray.png
+    - lib/assets/platinSite.png
+    - lib/assets/wwwplatin.png
+    - lib/assets/alem_fmSite.png
+    - lib/assets/radyoGray.png
+    - lib/assets/wwwalemfm.png
+    - lib/assets/lig_radyoSite.png
+    - lib/assets/wwwligradyo.png
+    - lib/assets/24radyoSite.jpg
+    - lib/assets/www24radyo.png
+    - lib/assets/dijitalGray.png
+    - lib/assets/tv24Site.jpg
+    - lib/assets/tvGray.png
+    - lib/assets/wwwtv24.png
+    - lib/assets/wwwtv360.png
+    - lib/assets/tv360Site.png
+    - lib/assets/tv4Site.png
+    - lib/assets/wwwtv4.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

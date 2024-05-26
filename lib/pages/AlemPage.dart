@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class AlemPage extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _AlemPageState createState() => _AlemPageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+
+class _AlemPageState extends State<AlemPage> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -57,7 +58,7 @@ class _GunesPageState extends State<GunesPage> {
               height: 70,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('lib/assets/gazeteGray.png'),
+                  image: AssetImage('lib/assets/dergiGray.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,41 +69,19 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
+                      image: AssetImage('lib/assets/alemSite.png'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 15,
+                  top: 75,
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/wwwalem.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
-                    },
-                  ),
-                ),
-                Positioned(
-                  top: 75,
-                  left: 16,
-                  width: 80,
-                  child: IconButton(
-                    icon: Image.asset('lib/assets/GetPlay.png'),
-                    onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
-                    },
-                  ),
-                ),
-                Positioned(
-                  top: 100,
-                  left: 16,
-                  width: 80,
-                  child: IconButton(
-                    icon: Image.asset('lib/assets/DowAppStore.png'),
-                    onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://www.alem.com.tr/');
                     },
                   ),
                 ),
@@ -115,7 +94,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    'Alem Dergisi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Türkiye’nin Bir Numaralı Yaşam ve Cemiyet Dergisi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +110,28 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    'ALEM, 16 Haziran 1993 yılından bu yana Türkiye’nin 1 numaralı yaşam ve cemiyet dergisi olarak her Çarşamba okuyucularıyla buluşmaya devam ediyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    'Haftalık dergi pazarının en köklü markası olan ALEM deneyimli kadrosuyla çağdaş sanat, moda, seyahat ve kültür üzerine yazı, röportaj ve içeriğiyle her hafta takipçilerine ulaşıyor. Gerçekleştirdiği sanat etkinlikleriyle de alanında bir ilke imza atan Alem Dergisi, Türkiye’de ilk kez ‘Art Weekend’ konseptini hayata geçirdi. Dijital yayınlarıyla yeni nesil medyanın da önemli temsilcilerinden ve önderlerinden biri haline gelen Alem, gerçekleştirdiği prodüksiyonlu kapak çekimleri, röportajlarla da moda dünyasının en dikkat çeken mecralarından biri konumunda. Özel röportajlarıyla ve gerçekleştirdiği çekimler ile kültür-sanattan modaya, seyahatten gustoya, görkemli açılış ve davetlerle cemiyet hayatının tanınmış simalarının renkli hayatlarını sunan ALEM Dergisi, sizlere bugün ve gelecek arasında lüks yaşam yolculuğu yaptırırken aynı zamanda hedef kitlesinin özel ilgi alanlarına referans niteliğinde köklü saygın ve güvenilir bir “yaşam rehberi” sunmaktadır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
+                    'ALEM Dergisi, dijital dünyada da ALEM Talks canlı yayın ve podcast programları ile sektörün önde gelen isimlerini ağırlıyor. Yaklaşık yarım milyonluk Instagram hesabı, Youtube kanalı, Spotify ile Tiktok hesapları ve günlük haber akışı sunan alem.com.tr web sayfasıyla güncel olanı yakalamayı başarıyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Yıllardır süregelen farklı konseptlerle özel davetlerinin yanı sıra destek verdiği sayısız sosyal sorumluluk projeleriyle de tüm dünyada değişen tüketici algısına istinaden ALEM Dergisi okurlarına ürün değil deneyim sunmaktadır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -189,6 +168,46 @@ class _GunesPageState extends State<GunesPage> {
                     ContactInfo(
                       title: 'Merkez Fax',
                       details: '0(212) 473 21 45',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Basıldığı Yer',
+                      details: 'Turkuvaz Haberleşme Ve Yayıncılık A.Ş.',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Genel Dağıtım',
+                      details: 'Turkuvaz Dağıtım Pazarlama A.Ş.',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'İstanbul Matbaa',
+                      details: 'Güzeltepe Mah. Mareşal Fevzi Çakmak Cad. B Blok 29/1/1 Eyüpsultan / İstanbul',
+                      phone: '(0212) 354 30 00',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Ankara Matbaa',
+                      details: 'Esenboğa Yolu 13 km, Pursaklar / ANKARA',
+                      phone: '(0312) 328 85 00',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'İzmir Matbaa',
+                      details: 'Çınarlı Mahallesi Ankara Asfaltı Caddesi no:5 Konak / İzmir',
+                      phone: '(0232) 497 15 00',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Adana Matbaa',
+                      details: 'Ceyhan Yolu Üzeri 5 km, Sabah Tesisleri Yüreğir / Adana',
+                      phone: '(0322) 346 30 93',
+                    ),
+                    Divider(thickness: 1.0,color: Colors.black,),
+                    ContactInfo(
+                      title: 'Trabzon Matbaa',
+                      details: 'Arsin Organize Sanayi Bölgesi 1.Cadde No:14',
+                      phone: '(0462) 711 16 05',
                     ),
                     SizedBox(height: 60),
                   ],

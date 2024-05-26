@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/pages/TurkMedyaDijitalPage.dart';
+import 'package:news_app/pages/Tv24Page.dart';
+import 'package:news_app/pages/Tv4Page.dart';
 import 'AksamPage.dart';
-import 'DataRetrieval.dart';
+import 'AlemFMPage.dart';
+import 'AlemPage.dart';
 import 'GunesPage.dart';
-import 'DataStorage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'LigRadyoPage.dart';
+import 'PlatinPage.dart';
+import 'Radyo24Page.dart';
+import 'StarPage.dart';
+import 'Tv360Page.dart';
 
 class TurkMedyaPage extends StatefulWidget {
   @override
@@ -336,7 +345,10 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/star.png'), // Buton3 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => StarPage()),
+                    );
                   },
                 ),
               ),
@@ -360,7 +372,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/tv24.png'), // Buton1 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tv24Page()),
+                    );
                   },
                 ),
               ),
@@ -382,7 +398,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/360tv.png'), // Buton2 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tv360Page()),
+                    );
                   },
                 ),
               ),
@@ -404,7 +424,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/tv4.jpg'), // Buton3 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tv4Page()),
+                    );
                   },
                 ),
               ),
@@ -428,7 +452,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/alemFM.png'), // Buton1 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AlemFMPage()),
+                    );
                   },
                 ),
               ),
@@ -450,7 +478,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/Lig_Radyo.png'), // Buton2 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LigRadyoPage()),
+                    );
                   },
                 ),
               ),
@@ -472,7 +504,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/24radyo.jpg'), // Buton3 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Radyo24Page()),
+                    );
                   },
                 ),
               ),
@@ -496,7 +532,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/alem.png'), // Buton1 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AlemPage()),
+                    );
                   },
                 ),
               ),
@@ -518,7 +558,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/platin.png'), // Buton2 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlatinPage()),
+                    );
                   },
                 ),
               ),
@@ -566,7 +610,11 @@ class MarkalarPage extends StatelessWidget {
                   icon: Image.asset('lib/assets/TürkmedyaDijital.png'), // Buton1 resmi
                   iconSize: 50, // İkon boyutu
                   onPressed: () {
-                    // Butona tıklandığında yapılacaklar
+                    _checkCurrentPage();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => TurkMedyaDijitalPage()),
+                    );
                   },
                 ),
               ),

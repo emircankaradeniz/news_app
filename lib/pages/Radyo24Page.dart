@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class Radyo24Page extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _Radyo24PageState createState() => _Radyo24PageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+class _Radyo24PageState extends State<Radyo24Page> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -57,7 +57,7 @@ class _GunesPageState extends State<GunesPage> {
               height: 70,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('lib/assets/gazeteGray.png'),
+                  image: AssetImage('lib/assets/radyoGray.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,8 +68,8 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
-                      fit: BoxFit.scaleDown,
+                      image: AssetImage('lib/assets/24radyoSite.jpg'),
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -78,9 +78,9 @@ class _GunesPageState extends State<GunesPage> {
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/www24radyo.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
+                      _launchURL('https://www.24radyo.com/');
                     },
                   ),
                 ),
@@ -91,7 +91,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/GetPlay.png'),
                     onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
+                      _launchURL('https://play.google.com/store/apps/details?id=com.radyo.yirmidort.android&hl=tr&gl=US');
                     },
                   ),
                 ),
@@ -102,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/DowAppStore.png'),
                     onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://apps.apple.com/tr/app/24-radyo/id6476484735?l=tr');
                     },
                   ),
                 ),
@@ -115,7 +115,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    '24 Radyo',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Haberin Yeni Frekansında Yenilikçi Dönem',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +131,21 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    '24 Radyo, "Haberin Yeni Frekansı" mottosuyla 30 Aralık 2023 tarihinde yayın hayatına başladı.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    '24 TV’nin sektördeki uzun yıllara dayanan tecrübesini ve geleneksel haber anlayışını modern tekniklerle harmanlayarak, dinleyicilerine farklı bir deneyim sunan 24 Radyo, 24 saat hızlı, tarafsız ve güncel haber sunmaktadır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Geniş frekans ağı ve internet üzerinden günün her saati en yeni gelişmeleri dinleyicilerine aktaran ve anında bilgi kaynağına erişimini sağlayan 24 Radyo, haber dinleme deneyiminizi baştan oluşturuyor.',
                     style: TextStyle(
                       fontSize: 16,
                     ),

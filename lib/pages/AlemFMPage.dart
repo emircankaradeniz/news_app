@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class AlemFMPage extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _AlemFMPageState createState() => _AlemFMPageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+class _AlemFMPageState extends State<AlemFMPage> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -57,7 +57,7 @@ class _GunesPageState extends State<GunesPage> {
               height: 70,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('lib/assets/gazeteGray.png'),
+                  image: AssetImage('lib/assets/radyoGray.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,7 +68,7 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
+                      image: AssetImage('lib/assets/alem_fmSite.png'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -78,9 +78,9 @@ class _GunesPageState extends State<GunesPage> {
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/wwwalemfm.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
+                      _launchURL('https://www.alemfm.com/');
                     },
                   ),
                 ),
@@ -91,7 +91,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/GetPlay.png'),
                     onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
+                      _launchURL('https://play.google.com/store/apps/details?id=com.alemfm.android');
                     },
                   ),
                 ),
@@ -102,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/DowAppStore.png'),
                     onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://itunes.apple.com/us/app/alem-fm/id1159712287?ls=1&mt=8');
                     },
                   ),
                 ),
@@ -115,7 +115,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    'Alem Fm',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Cümle Alem Burada!',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +131,28 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    'Alem FM, Türkiye\'de ulusal yayın yapan özel bir radyo istasyonudur. Merkezi İstanbul’da yer alan Alem FM, TürkMedya grubuna bağlı olarak yayın hayatını sürdürmektedir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    'Alem FM, Türkiye\'nin ilk özel radyolarından biri olmasının yanı sıra, erişimi en yüksek özel radyoların başında gelmektedir. Türkiye genelinde 43\'ü aşkın şehirde, İstanbul\'da 89.2 frekansında, uydu ve internet üzerinden dünyanın her yerinden dinlenebilir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
+                    'Türk pop müziğinde öncü bir rol üstlenen, geniş kitlelere hitap e den Alem FM’de program içerikleri geniş bir yelpazede çeşitlilik göstermektedir. Yüksek teknolojiye sahip ekipmanı yerinden yayın yapma olanağı sağlayan canlı yayın araçlarıyla Alem FM, ülkemizin pek çok farklı noktasından canlı yayınlar gerçekleştirebilecek imkana sahiptir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Deneyimli radyocularıyla, birbirinden dinamik, eğlenceli ve samimi programların adresi haline gelen Alem FM, yayın hayatı boyunca gerek dinleyiciler gerekse bağımsız dernek ve kuruluşlar tarafından sayısız ödüle layık görülmüştür.',
                     style: TextStyle(
                       fontSize: 16,
                     ),

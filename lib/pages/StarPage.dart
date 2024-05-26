@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class StarPage extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _StarPageState createState() => _StarPageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+class _StarPageState extends State<StarPage> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -68,7 +68,7 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
+                      image: AssetImage('lib/assets/starSite.png'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -78,9 +78,9 @@ class _GunesPageState extends State<GunesPage> {
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/wwwstar.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
+                      _launchURL('https://www.star.com.tr/');
                     },
                   ),
                 ),
@@ -91,7 +91,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/GetPlay.png'),
                     onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
+                      _launchURL('https://play.google.com/store/apps/details?id=com.star.android');
                     },
                   ),
                 ),
@@ -102,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/DowAppStore.png'),
                     onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://apps.apple.com/us/app/star-gazetesi/id563927022?ls=1');
                     },
                   ),
                 ),
@@ -115,7 +115,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    'Star Gazetesi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Milli İradenin Sesi',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +131,49 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    'Star Gazetesi, 1999 yılında yayın hayatına başlamış ve 2015 yılında yenilenen yüzüyle birlikte milli iradenin sesini yansıtan öncü gazete olarak yayın hayatına devam etmiştir. Manşetleri, özel haberleri, köşe yazıları ve röportajları ile gündem belirlemekte olup tüm içeriğinde temel hakların savunucusu olmayı ilke edinmiştir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    'Olaylara özgün bakış açısı, global piyasaların geleceğini öngören ekonomisi, nitelikli fotoğrafları, ses getiren spor röportajları, ödüllü kültür sanat ve sektörel sayfaları, bölgesel ve küresel olayların analiz edildiği dış haberleri, bölge sayfaları ve yerel haberlerin yer aldığı zengin içeriğini okuru ile buluşturmuştur.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
+                    'Star Gazetesi 2012-2013 yıllarında, Necip Fazıl tarafından çıkarılmış Büyük Doğu dergilerinin tıpkıbasımlarını gazete ile birlikte vererek okuyucu ile buluşturmuştu. 2014 yılından itibaren ise Star Gazetesi, Necip Fazıl’ın kültürel ve manevi mirasını sürdürme kaygısıyla her yıl Aralık ayında gerçekleştirilmek üzere ‘Necip Fazıl Ödülleri’ni düzenlemeye başlamıştır. 2014 yılından itibaren her yıl düzenlenmekte olup 2016 yılı ile birlikte Kültür ve Turizm Bakanlığı’nın destekleriyle sürdürülmektedir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Star Gazetesi; matbu faaliyetlerini 01 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Star Gazetesi; matbu faaliyetlerini 01 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanma kararı almış olup daha dinamik bir şekilde yayın hayatına devam etmektedir.',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'star.com.tr; gelişen dijital altyapısı ile bilikte web sitesinden anlık haber akışı ve gündemi, yaşamın her alanında etkin içerikleri, birbirinden değerli isimlerin köşe yazılarını aktarmaktadır.',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Milli iradenin sesi Star’ı web sitesinden, mobil uygulamalardan ve sosyal medya hesaplarından takip edilebilir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),

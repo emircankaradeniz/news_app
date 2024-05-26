@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'turkmedya.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-class GunesPage extends StatefulWidget {
+class Tv24Page extends StatefulWidget {
   @override
-  _GunesPageState createState() => _GunesPageState();
+  _Tv24PageState createState() => _Tv24PageState();
 }
 void _saveCurrentPage()async{
   final prefs =await SharedPreferences.getInstance();
   prefs.setString("_currentPage","Markalar" );
 }
-class _GunesPageState extends State<GunesPage> {
+class _Tv24PageState extends State<Tv24Page> {
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -57,7 +57,7 @@ class _GunesPageState extends State<GunesPage> {
               height: 70,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('lib/assets/gazeteGray.png'),
+                  image: AssetImage('lib/assets/tvGray.png'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -68,7 +68,7 @@ class _GunesPageState extends State<GunesPage> {
                   height: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('lib/assets/gunesSite.png'),
+                      image: AssetImage('lib/assets/tv24Site.jpg'),
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -78,9 +78,9 @@ class _GunesPageState extends State<GunesPage> {
                   left: 16,
                   width: 120,
                   child: IconButton(
-                    icon: Image.asset('lib/assets/wwwgunes.png'),
+                    icon: Image.asset('lib/assets/wwwtv24.png'),
                     onPressed: () {
-                      _launchURL('https://www.gunes.com/');
+                      _launchURL('https://www.yirmidort.tv/');
                     },
                   ),
                 ),
@@ -91,7 +91,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/GetPlay.png'),
                     onPressed: () {
-                      _launchURL('https://play.google.com/store/apps/details?id=com.gunes.android');
+                      _launchURL('https://play.google.com/store/apps/details?id=tv.yirmidort.android');
                     },
                   ),
                 ),
@@ -102,7 +102,7 @@ class _GunesPageState extends State<GunesPage> {
                   child: IconButton(
                     icon: Image.asset('lib/assets/DowAppStore.png'),
                     onPressed: () {
-                      _launchURL('https://apps.apple.com/us/app/g%C3%BCne%C5%9F/id1132015199?ls=1');
+                      _launchURL('https://itunes.apple.com/us/app/24-tv/id1187926970?ls=1&mt=8');
                     },
                   ),
                 ),
@@ -115,7 +115,7 @@ class _GunesPageState extends State<GunesPage> {
                 children: [
                   SizedBox(height: 30),
                   Text(
-                    'Güneş Gazetesi',
+                    '24 TV',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Halkın Cesur Sesi',
+                    'Doğrusunu Öğrenin',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -131,28 +131,35 @@ class _GunesPageState extends State<GunesPage> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1997 yılında \'Halkın Cesur Sesi\' sloganıyla yayın hayatına başlayan GÜNEŞ Gazetesi, farklı ve etkin gazetecilik anlayışıyla kulvarının en iddialı gazetelerindendir.',
+                    'Hızlı, tarafsız, doğru haber anlayışı ve yetenekli kadrosu ile gündem oluşturan, milletin sesine kulak veren haber programları ve yaşam programlarının yer aldığı 24 TV, 2007 yılında yayın hayatına başlamıştır.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    '1 Ocak 2020 tarihine kadar, 100 bini aşan tirajı ve 400 bine ulaşan erişim oranıyla her gün okuyucusuyla buluşan GÜNEŞ Gazetesi, toplumun genel ilgisini çekebilecek düzeyde geniş bir yelpazeyi kapsayan yazı dizileri ve ekleriyle Türk okuyucusunun nabzını tutarak her an her yerde okunmayı garanti eden bir içerik sunmuştur.',
+                    '10 Nisan 2018 tarihinde HD yayına geçiş yapan 24 TV, bölgesel ve küresel olayların analiz edildiği haber tartışma programları, haber izleyicisine en özel, en sıcak haberleri ve canlı bağlantılarla gündemin yoğun haber akışını anlık olarak vermektedir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Güneş Gazetesi; matbu faaliyetlerini 1 Ocak 2020 tarihi itibariyle sonlandırarak, habercilik faaliyetlerinde dijital mecralara odaklanarak, daha dinamik bir şekilde devam ettirme kararı almıştır.',
+                    '24 TV haber merkezinin izleyiciye vaadi; toplumun tansiyonunu anlamaya ve doğru aktarmaya çalışan; adil, önyargısız farklı bakış açıları geliştirebilen ve refleksi kuvvetli bir ekiple her an sıcak ve doğru habere ulaşabileceklerini bilmeleridir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'gunes.com; web sitesinden, mobil uygulamalarından ve sosyal medya hesaplarından gündem, ekonomi, yaşam, spor, dünya, magazin ve sağlık kategorilerindeki anlık haberleri takipçilerine aktarmaya devam ediyor.',
+                    'Türkiye ve dünyada yer alan gelişmelerin, yoğun gündem ve haber akışının yanı sıra, yemek, psikoloji, gençlere ve aileye yönelik; belgesel, gezi, doğa, tarih, otomobil ve spor kategorilerinde de yayın yapan geniş yelpazesi ile farklı yaşam programları da izleyici ihtiyacı ve faydasına hizmet etmek için yayın akışında yer almaktadır.',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    '24 TV, Türkiye’de en çok dijital ekranı barındırmakta, 360 derece açılı stüdyosu ile teknoloji ve medyadaki inovasyon ve gelişmeleri yakından takip etmekte ve izleyicinin ihtiyaçlarına cevap vermektedir.',
                     style: TextStyle(
                       fontSize: 16,
                     ),
