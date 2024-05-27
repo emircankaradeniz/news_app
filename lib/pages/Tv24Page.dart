@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'turkmedya.dart';
+import 'package:news_app/pages/Tv24HaberlerPage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 class Tv24Page extends StatefulWidget {
@@ -107,6 +108,25 @@ class _Tv24PageState extends State<Tv24Page> {
                   ),
                 ),
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Container(
+                width: double.infinity,
+                child: IconButton(
+                  icon: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius as needed
+                    child: Image.asset('lib/assets/haberleregit.png'),
+                  ),
+                  iconSize: 50,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tv24HaberlerPage()),
+                    );
+                  },
+                ),
+              ),
             ),
             Container(
               padding: EdgeInsets.all(16.0),
