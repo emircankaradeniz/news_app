@@ -1,11 +1,12 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
 import 'package:news_app/pages/Tv24Page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../data/Tv24HaberData.dart';
+import '../data/Tv24HaberData2.dart';
 
 class Tv24HaberlerPage extends StatefulWidget {
   @override
@@ -18,8 +19,12 @@ void _saveCurrentPage() async {
 }
 class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
-  var url = Uri.parse("https://www.yirmidort.tv/son-dakika");
+  var urlSndk = Uri.parse("https://www.yirmidort.tv/son-dakika");
+  var urlGndm = Uri.parse("https://www.yirmidort.tv/gundem");
   List<Haber> haberler = [];
+  List<Haber2> haberler2 = [];
+  List<Haber> haberler3 = [];
+  var data;
 
   @override
   void initState() {
@@ -33,7 +38,15 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
     _tabController.dispose();
     super.dispose();
   }
-
+  void _changeData(int index) {
+    setState(() {
+      // Here you can define how the data changes. This is just an example.
+      haberler2[index] = Haber2(
+        image: 'https://via.placeholder.com/350/0000FF',
+        baslik: 'Updated Title',
+      );
+    });
+  }
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
@@ -44,11 +57,14 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
   }
 
   Future<void> getData() async {
-    var res = await http.get(url);
-    final body = res.body;
-    final document = parser.parse(body);
+    var resSndk = await http.get(urlSndk);
+    var resGndm = await http.get(urlGndm);
+    final bodySndk = resSndk.body;
+    final documentSndk = parser.parse(bodySndk);
+    final bodyGndm = resGndm.body;
+    final documentGndm = parser.parse(bodyGndm);
 
-    var response = document
+    var responseSndk = documentSndk
         .getElementsByClassName("news-detail")[0]
         .getElementsByClassName("hotnews-row")
         .forEach((element) {
@@ -62,6 +78,34 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
             ),
           );
         });
+    });
+    var responseGndm = documentGndm
+        .getElementsByClassName("news-detail")[0]
+        .getElementsByClassName("swiper-slide news-block")
+        .forEach((element) {
+      setState(() {
+        haberler2.add(
+          Haber2(
+              image: element.children[0].children[0].children[0].attributes["data-src"].toString(),
+              baslik: element.children[0].children[0].children[0].attributes["alt"].toString()
+          ),
+        );
+      });
+    });
+    var responseGndm2 = documentGndm
+        .getElementsByClassName("row")[0]
+        .getElementsByClassName("category-news-card d-flex flex-row")
+        .forEach((element) {
+      setState(() {
+        haberler3.add(
+          Haber(
+              image: element.children[0].children[0].children[0].attributes["data-src"].toString(),
+              baslik: element.children[1].children[0].children[1].text.toString(),
+              metin: element.children[1].children[0].children[2].text.toString(),
+              saat: element.children[1].children[0].children[0].children[1].text.toString()
+          ),
+        );
+      });
     });
   }
   @override
@@ -160,7 +204,116 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                   ),
                 ),
                 ),
-                Center(child: Text('GÜNDEM')),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 300,
+                      child: Swiper(
+                        itemCount: haberler2.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                            elevation: 6,
+                            color: Colors.white,
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        SizedBox(width: 10),
+                                        ClipRRect(
+                                          borderRadius: BorderRadius.circular(5),
+                                          child: Image.network(
+                                            haberler2[index].image,
+                                            width: 340,
+                                          ),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            _changeData(index);
+                                          },
+                                          child: Container(
+                                            width: 50,
+                                            color: Colors.transparent,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Positioned(
+                                      bottom: 10,
+                                      left: 40,
+                                      right: 50,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 0.0),
+                                        child: Text(
+                                          haberler2[index].baslik,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        pagination: SwiperPagination(),
+                        control: SwiperControl(),
+                      ),
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 1,
+                            childAspectRatio: 1.2,
+                            mainAxisSpacing: 10,
+                            crossAxisSpacing: 10
+                        ),
+                        itemCount: haberler3.length,
+                        itemBuilder: (context, index) =>Card(
+                          elevation: 6,
+                          color: Colors.white,
+                          child: Column(
+                            children: [
+                              Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(5),
+                                    child: Image.network(
+                                      haberler3[index].image,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.date_range_rounded),
+                                      Text(haberler3[index].saat),
+                                    ],
+
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 10,),
+                              Text(haberler3[index].baslik,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 10,),
+                              Text(haberler3[index].metin),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 Center(child: Text('EKONOMİ')),
                 Center(child: Text('YAŞAM')),
                 Center(child: Text('SPOR')),
