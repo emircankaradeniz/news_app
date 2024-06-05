@@ -41,6 +41,7 @@ dependencies:
   http: ^0.13.5
   html: ^0.15.3
   card_swiper: ^3.0.1
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -125,6 +126,12 @@ flutter:
     - lib/assets/wwwtv4.png
     - lib/assets/haberleregit.png
     - lib/assets/tv24Header.jpeg
+    - lib/assets/Business_back.jpg
+    - lib/assets/Entertainment_back.jpg
+    - lib/assets/General_back.jpg
+    - lib/assets/Health_back.jpg
+    - lib/assets/Science_back.jpg
+    - lib/assets/Sports_back.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

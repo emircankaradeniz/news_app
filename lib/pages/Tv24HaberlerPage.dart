@@ -207,7 +207,7 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       height: 300,
                       child: Swiper(
                         itemCount: haberler2.length,

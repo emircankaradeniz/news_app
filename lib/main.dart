@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'pages/home.dart';
 import 'pages/turkmedya.dart';
-import 'pages/globalnews.dart';
+import 'pages/home_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,8 +20,13 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         '/turkmedya': (context) => TurkMedyaPage(),
-        '/globalnews': (context) => GlobalNewsPage(),
+        '/globalnews': (context) => ChangeNotifierProvider(
+          create: (context) => NewsNotifier(), // Ensure you have a NewsNotifier class
+          child: NewsHomeScreen(),
+        ),
       },
     );
   }
+}
+class NewsNotifier with ChangeNotifier {
 }
