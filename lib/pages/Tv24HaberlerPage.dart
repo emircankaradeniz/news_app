@@ -287,7 +287,7 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                                     borderRadius: BorderRadius.circular(5),
                                     child: Image.network(
                                       haberler3[index].image,
-                                      fit: BoxFit.cover,
+                                      width: 270,
                                     ),
                                   ),
                                   Row(
