@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/pages/category_news.dart';
-import 'package:news_app/pages/home.dart';
 import 'package:news_app/pages/news_detail.dart';
 import 'package:news_app/services/news_service.dart';
 import 'package:news_app/models/category_data.dart';

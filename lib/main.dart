@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/turkmedya': (context) => TurkMedyaPage(),
         '/globalnews': (context) => ChangeNotifierProvider(
-          create: (context) => NewsNotifier(), // Ensure you have a NewsNotifier class
+          create: (context) => NewsNotifier(),
           child: NewsHomeScreen(),
         ),
       },

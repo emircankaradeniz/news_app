@@ -185,7 +185,7 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                               borderRadius: BorderRadius.circular(5),
                               child: Image.network(
                                 haberler[index].image,
-                                fit: BoxFit.cover,
+                                width: 320,
                               ),
                             ),
                           ],
@@ -204,70 +204,71 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                   ),
                 ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 300,
-                      child: Swiper(
-                        itemCount: haberler2.length,
-                        itemBuilder: (context, index) {
-                          return Card(
-                            elevation: 6,
-                            color: Colors.white,
-                            child: Column(
-                              children: [
-                                Stack(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        SizedBox(width: 10),
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(5),
-                                          child: Image.network(
-                                            haberler2[index].image,
-                                            width: 340,
+                Expanded(
+                  child: ListView(
+                    children: [
+                      SizedBox(
+                        height: 300,
+                        child: Swiper(
+                          itemCount: haberler2.length,
+                          itemBuilder: (context, index) {
+                            return Card(
+                              elevation: 6,
+                              color: Colors.white,
+                              child: Column(
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          SizedBox(width: 10),
+                                          ClipRRect(
+                                            borderRadius: BorderRadius.circular(5),
+                                            child: Image.network(
+                                              haberler2[index].image,
+                                              width: 340,
+                                            ),
                                           ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () {
-                                            _changeData(index);
-                                          },
-                                          child: Container(
-                                            width: 50,
-                                            color: Colors.transparent,
+                                          GestureDetector(
+                                            onTap: () {
+                                              _changeData(index);
+                                            },
+                                            child: Container(
+                                              width: 50,
+                                              color: Colors.transparent,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Positioned(
-                                      bottom: 10,
-                                      left: 40,
-                                      right: 50,
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 0.0),
-                                        child: Text(
-                                          haberler2[index].baslik,
-                                          style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.bold,
+                                        ],
+                                      ),
+                                      Positioned(
+                                        bottom: 10,
+                                        left: 40,
+                                        right: 50,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 0.0),
+                                          child: Text(
+                                            haberler2[index].baslik,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                        pagination: SwiperPagination(),
-                        control: SwiperControl(),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          pagination: SwiperPagination(),
+                          control: SwiperControl(),
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: GridView.builder(
+                      GridView.builder(
+                        shrinkWrap: true, // Bu satır, GridView'ın genişlemesini engeller ve ListView ile birlikte çalışmasını sağlar.
+                        physics: NeverScrollableScrollPhysics(), // GridView'ın kendi başına kaydırılmasını engeller.
                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 1,
                             childAspectRatio: 1.2,
@@ -275,7 +276,7 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                             crossAxisSpacing: 10
                         ),
                         itemCount: haberler3.length,
-                        itemBuilder: (context, index) =>Card(
+                        itemBuilder: (context, index) => Card(
                           elevation: 6,
                           color: Colors.white,
                           child: Column(
@@ -294,7 +295,6 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                                       Icon(Icons.date_range_rounded),
                                       Text(haberler3[index].saat),
                                     ],
-
                                   ),
                                 ],
                               ),
@@ -311,8 +311,8 @@ class _Tv24HaberlerPageState extends State<Tv24HaberlerPage> with SingleTickerPr
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 Center(child: Text('EKONOMİ')),
                 Center(child: Text('YAŞAM')),
